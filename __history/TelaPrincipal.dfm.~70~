@@ -1,0 +1,166 @@
+object sistemaComercial: TsistemaComercial
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsSingle
+  Caption = 'Sistema Comercial'
+  ClientHeight = 676
+  ClientWidth = 1385
+  Color = clBtnFace
+  DefaultMonitor = dmDesktop
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -5
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  WindowState = wsMaximized
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 6
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 659
+    Width = 1385
+    Height = 17
+    Margins.Left = 2
+    Margins.Top = 2
+    Margins.Right = 2
+    Margins.Bottom = 2
+    Panels = <
+      item
+        Width = 900
+      end
+      item
+        Width = 200
+      end
+      item
+        Width = 200
+      end>
+  end
+  object Timer1: TTimer
+    OnTimer = Timer1Timer
+    Left = 1352
+    Top = 448
+  end
+  object MainMenu1: TMainMenu
+    Left = 24
+    Top = 40
+    object File1: TMenuItem
+      Caption = '&Arquivo'
+      object New1: TMenuItem
+        Caption = '&Novo'
+        object Cliente1: TMenuItem
+          Caption = 'Cliente'
+          OnClick = Cliente1Click
+        end
+        object Produto1: TMenuItem
+          Caption = 'Produto'
+          OnClick = Produto1Click
+        end
+        object Fornecedor1: TMenuItem
+          Caption = 'Fornecedor'
+          OnClick = Fornecedor1Click
+        end
+        object Venda1: TMenuItem
+          Caption = 'Venda'
+          OnClick = Venda1Click
+        end
+      end
+      object Open1: TMenuItem
+        Caption = '&Abrir'
+      end
+      object Save1: TMenuItem
+        Caption = '&Salvar'
+      end
+      object SaveAs1: TMenuItem
+        Caption = 'Salvar &Como...'
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object Print1: TMenuItem
+        Caption = '&Imprimir...'
+      end
+      object PrintSetup1: TMenuItem
+        Caption = 'C&onfigurar Impress'#227'o...'
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object Exit1: TMenuItem
+        Caption = 'S&air'
+      end
+    end
+    object Edit1: TMenuItem
+      Caption = '&Editar'
+      object Undo1: TMenuItem
+        Caption = '&Desfazer'
+        ShortCut = 16474
+      end
+      object N5: TMenuItem
+        Caption = '-'
+      end
+      object Cut1: TMenuItem
+        Caption = 'Co&rtar'
+        ShortCut = 16472
+      end
+      object Copy1: TMenuItem
+        Caption = '&Copiar'
+        ShortCut = 16451
+      end
+      object Paste1: TMenuItem
+        Caption = '&Colar'
+        ShortCut = 16470
+      end
+      object PasteSpecial1: TMenuItem
+        Caption = 'Colar &Especial...'
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object Find1: TMenuItem
+        Caption = '&Encontrar'
+      end
+      object Replace1: TMenuItem
+        Caption = 'S&ubstituir'
+      end
+      object GoTo1: TMenuItem
+        Caption = '&Ir para'
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+    end
+    object Cadastros1: TMenuItem
+      Caption = 'Cadastrar'
+      object Clientes1: TMenuItem
+        Caption = 'Clientes'
+        OnClick = Clientes1Click
+      end
+      object Produtos1: TMenuItem
+        Caption = 'Produtos'
+        OnClick = Produtos1Click
+      end
+      object Fornecedores1: TMenuItem
+        Caption = 'Fornecedores'
+        OnClick = Fornecedores1Click
+      end
+      object Vendas1: TMenuItem
+        Caption = 'Vendas'
+        OnClick = Vendas1Click
+      end
+    end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+      object Produtos2: TMenuItem
+        Caption = 'Produtos'
+      end
+      object Vendas2: TMenuItem
+        Caption = 'Vendas'
+      end
+    end
+  end
+end

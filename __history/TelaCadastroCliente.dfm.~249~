@@ -1,0 +1,351 @@
+object cadastroCliente: TcadastroCliente
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  Caption = 'Cadastro de Clientes'
+  ClientHeight = 549
+  ClientWidth = 717
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object GroupBox1: TGroupBox
+    Left = 21
+    Top = 16
+    Width = 665
+    Height = 297
+    Caption = 'DADOS PESSOAIS'
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 16
+      Top = 24
+      Width = 23
+      Height = 13
+      Caption = 'CPF:'
+      FocusControl = edtCpf
+    end
+    object Label2: TLabel
+      Left = 16
+      Top = 67
+      Width = 31
+      Height = 13
+      Caption = 'Nome:'
+      FocusControl = edtNome
+    end
+    object Label3: TLabel
+      Left = 272
+      Top = 24
+      Width = 100
+      Height = 13
+      Caption = 'Data de Nascimento:'
+      FocusControl = edtNascimento
+    end
+    object Label4: TLabel
+      Left = 507
+      Top = 24
+      Width = 89
+      Height = 13
+      Caption = 'Data do Cadastro:'
+      FocusControl = edtCadastro
+    end
+    object Label5: TLabel
+      Left = 16
+      Top = 112
+      Width = 28
+      Height = 13
+      Caption = 'Email:'
+      FocusControl = edtEmail
+    end
+    object Label7: TLabel
+      Left = 16
+      Top = 164
+      Width = 69
+      Height = 13
+      Caption = 'Telefone Fixo:'
+      FocusControl = edtTelefone
+    end
+    object Label8: TLabel
+      Left = 224
+      Top = 164
+      Width = 37
+      Height = 13
+      Caption = 'Celular:'
+      FocusControl = edtCelular
+    end
+    object Label9: TLabel
+      Left = 16
+      Top = 208
+      Width = 50
+      Height = 13
+      Caption = 'Descri'#231#227'o:'
+      FocusControl = edtDescricao
+    end
+    object edtCpf: TDBEdit
+      Left = 16
+      Top = 40
+      Width = 186
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'cpf'
+      DataSource = dstbPessoaFisica
+      TabOrder = 0
+      OnKeyPress = edtCpfKeyPress
+    end
+    object edtNome: TDBEdit
+      Left = 16
+      Top = 85
+      Width = 625
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'nome'
+      DataSource = dstbPessoaFisica
+      MaxLength = 99
+      TabOrder = 3
+    end
+    object edtNascimento: TDBEdit
+      Left = 272
+      Top = 40
+      Width = 134
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'dtNascimento'
+      DataSource = dstbPessoaFisica
+      TabOrder = 1
+      OnChange = edtNascimentoChange
+      OnKeyPress = edtNascimentoKeyPress
+    end
+    object edtCadastro: TDBEdit
+      Left = 507
+      Top = 40
+      Width = 134
+      Height = 21
+      AutoSize = False
+      CharCase = ecUpperCase
+      DataField = 'data'
+      DataSource = dstbPessoaFisica
+      TabOrder = 2
+      OnChange = edtCadastroChange
+      OnKeyPress = edtCadastroKeyPress
+    end
+    object edtEmail: TDBEdit
+      Left = 16
+      Top = 131
+      Width = 394
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'email'
+      DataSource = dstbPessoaFisica
+      MaxLength = 29
+      TabOrder = 4
+    end
+    object edtTelefone: TDBEdit
+      Left = 16
+      Top = 183
+      Width = 173
+      Height = 21
+      DataField = 'telefone'
+      DataSource = dstbPessoaFisica
+      TabOrder = 5
+      OnChange = edtTelefoneChange
+      OnKeyPress = edtTelefoneKeyPress
+    end
+    object edtCelular: TDBEdit
+      Left = 224
+      Top = 183
+      Width = 186
+      Height = 21
+      DataField = 'celular'
+      DataSource = dstbPessoaFisica
+      TabOrder = 6
+      OnChange = edtCelularChange
+      OnKeyPress = edtCelularKeyPress
+    end
+    object edtDescricao: TDBEdit
+      Left = 16
+      Top = 227
+      Width = 625
+      Height = 62
+      AutoSize = False
+      CharCase = ecUpperCase
+      DataField = 'descricao'
+      DataSource = dstbPessoaFisica
+      MaxLength = 99
+      TabOrder = 7
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 21
+    Top = 319
+    Width = 665
+    Height = 130
+    Caption = 'ENDERE'#199'O'
+    TabOrder = 1
+    object Label6: TLabel
+      Left = 16
+      Top = 21
+      Width = 59
+      Height = 13
+      Caption = 'Logradouro:'
+      FocusControl = edtLogradouro
+    end
+    object Label10: TLabel
+      Left = 546
+      Top = 21
+      Width = 41
+      Height = 13
+      Caption = 'N'#250'mero:'
+      FocusControl = edtNumero
+    end
+    object Label11: TLabel
+      Left = 16
+      Top = 69
+      Width = 69
+      Height = 13
+      Caption = 'Complemento:'
+      FocusControl = edtComplemento
+    end
+    object Label12: TLabel
+      Left = 143
+      Top = 69
+      Width = 23
+      Height = 13
+      Caption = 'CEP:'
+      FocusControl = edtCep
+    end
+    object Label13: TLabel
+      Left = 304
+      Top = 69
+      Width = 37
+      Height = 13
+      Caption = 'Cidade:'
+      FocusControl = edtCidade
+    end
+    object Label14: TLabel
+      Left = 88
+      Top = 224
+      Width = 10
+      Height = 13
+      Caption = 'uf'
+      FocusControl = DBEdit6
+    end
+    object Label15: TLabel
+      Left = 600
+      Top = 67
+      Width = 17
+      Height = 13
+      Caption = 'UF:'
+      FocusControl = edtUf
+    end
+    object edtLogradouro: TDBEdit
+      Left = 16
+      Top = 40
+      Width = 513
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'logradouro'
+      DataSource = dstbPessoaFisica
+      MaxLength = 59
+      TabOrder = 0
+    end
+    object edtNumero: TDBEdit
+      Left = 546
+      Top = 40
+      Width = 95
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'numero'
+      DataSource = dstbPessoaFisica
+      TabOrder = 1
+      OnKeyPress = edtNumeroKeyPress
+    end
+    object edtComplemento: TDBEdit
+      Left = 16
+      Top = 88
+      Width = 102
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'complemento'
+      DataSource = dstbPessoaFisica
+      TabOrder = 2
+    end
+    object edtCep: TDBEdit
+      Left = 143
+      Top = 88
+      Width = 134
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'cep'
+      DataSource = dstbPessoaFisica
+      TabOrder = 3
+      OnKeyPress = edtCepKeyPress
+    end
+    object edtCidade: TDBEdit
+      Left = 304
+      Top = 88
+      Width = 278
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'cidade'
+      DataSource = dstbPessoaFisica
+      TabOrder = 4
+    end
+    object DBEdit6: TDBEdit
+      Left = 88
+      Top = 240
+      Width = 30
+      Height = 21
+      DataField = 'uf'
+      TabOrder = 6
+    end
+    object edtUf: TDBEdit
+      Left = 600
+      Top = 86
+      Width = 41
+      Height = 21
+      CharCase = ecUpperCase
+      DataField = 'uf'
+      DataSource = dstbPessoaFisica
+      TabOrder = 5
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 21
+    Top = 455
+    Width = 665
+    Height = 66
+    TabOrder = 2
+    object DBNavigator1: TDBNavigator
+      Left = 16
+      Top = 3
+      Width = 504
+      Height = 49
+      DataSource = dstbPessoaFisica
+      VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbPost, nbCancel]
+      TabOrder = 0
+    end
+    object btPesquisar: TBitBtn
+      Left = 542
+      Top = 3
+      Width = 75
+      Height = 46
+      Caption = 'Pesquisar'
+      DoubleBuffered = True
+      ParentDoubleBuffered = False
+      TabOrder = 1
+      OnClick = btPesquisarClick
+    end
+  end
+  object dstbPessoaFisica: TDataSource
+    DataSet = dmConexao.tbPessoaFisica
+    Left = 8
+    Top = 520
+  end
+end

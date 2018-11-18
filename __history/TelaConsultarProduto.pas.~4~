@@ -1,0 +1,42 @@
+unit TelaConsultarProduto;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids, DB;
+
+type
+  TconsultarProduto = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    DBGrid1: TDBGrid;
+    edtPesquisaNome: TEdit;
+    edtPesquisaCodigo: TEdit;
+    dsConsultarProduto: TDataSource;
+    procedure edtPesquisaNomeChange(Sender: TObject);
+    procedure edtPesquisaCodigoChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  consultarProduto: TconsultarProduto;
+
+implementation
+
+{$R *.dfm}
+
+procedure TconsultarProduto.edtPesquisaCodigoChange(Sender: TObject);
+begin
+    dmConexao.tbProdutos.Locate('idProduto', edtPesquisaCodigo.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TconsultarProduto.edtPesquisaNomeChange(Sender: TObject);
+begin
+    dmConexao.tbProdutos.Locate('produto', edtPesquisaNome.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+end.

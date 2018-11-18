@@ -1,0 +1,16 @@
+program ProjetoLoja;
+
+uses
+  Forms,
+  TelaLogin in 'TelaLogin.pas' {Login},
+  TelaPrincipal in 'TelaPrincipal.pas' {Principal};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TLogin, Login);
+  Application.CreateForm(TPrincipal, Principal);
+  Application.Run;
+end.

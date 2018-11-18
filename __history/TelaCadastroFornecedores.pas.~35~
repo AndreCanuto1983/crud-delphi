@@ -1,0 +1,237 @@
+unit TelaCadastroFornecedores;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, Mask, DBCtrls, ExtCtrls, Buttons;
+
+type
+  TcadastroFornecedores = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    edtCnpj: TDBEdit;
+    dsPessoaJuridica: TDataSource;
+    Label2: TLabel;
+    edtNomeFantasia: TDBEdit;
+    Label3: TLabel;
+    edtCadastro: TDBEdit;
+    Label4: TLabel;
+    edtFornecedor: TDBEdit;
+    Label5: TLabel;
+    edtEmail: TDBEdit;
+    Label6: TLabel;
+    edtSite: TDBEdit;
+    Label7: TLabel;
+    edtTelefone: TDBEdit;
+    Label8: TLabel;
+    edtCelular: TDBEdit;
+    Label9: TLabel;
+    edtDescricao: TDBEdit;
+    GroupBox2: TGroupBox;
+    Label10: TLabel;
+    edtLogradouro: TDBEdit;
+    Label11: TLabel;
+    edtNumero: TDBEdit;
+    Label12: TLabel;
+    edtComplemento: TDBEdit;
+    Label13: TLabel;
+    edtCep: TDBEdit;
+    Label14: TLabel;
+    edtCidade: TDBEdit;
+    Label15: TLabel;
+    edtUf: TDBEdit;
+    GroupBox3: TGroupBox;
+    DBNavigator1: TDBNavigator;
+    btPesquisar: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtCnpjKeyPress(Sender: TObject; var Key: Char);
+    procedure FormShow(Sender: TObject);
+    function Mascara(edt: String;str:String):string;
+    procedure edtCadastroChange(Sender: TObject);
+    procedure edtTelefoneChange(Sender: TObject);
+    procedure edtCadastroKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCelularChange(Sender: TObject);
+    procedure edtCepKeyPress(Sender: TObject; var Key: Char);
+    procedure btPesquisarClick(Sender: TObject);
+    procedure edtTelefoneKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCelularKeyPress(Sender: TObject; var Key: Char);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cadastroFornecedores: TcadastroFornecedores;
+
+implementation
+
+uses TelaCadastroCliente, TelaConexao, TelaConsultarFornecedor;
+
+{$R *.dfm}
+
+procedure TcadastroFornecedores.btPesquisarClick(Sender: TObject);
+begin
+    cadastroFornecedores.Hide;
+    consultarFornecedor.ShowModal;
+end;
+
+procedure TcadastroFornecedores.edtCadastroChange(Sender: TObject);
+begin
+    edtCadastro.Text := Mascara(edtCadastro.Text,'99/99/9999');
+    edtCadastro.SelStart := Length(edtCadastro.Text);
+end;
+
+procedure TcadastroFornecedores.edtCadastroKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroFornecedores.edtCelularChange(Sender: TObject);
+begin
+    if (Length(edtCelular.Text) = 1) then
+ begin
+  if edtCelular.Text[1] = '(' then
+   edtCelular.Text := ''
+  else
+   begin
+    edtCelular.Text := '('+edtCelular.Text;
+    edtCelular.SelStart := Length(edtCelular.Text);
+   end;
+ end;
+if Length(edtCelular.Text) = 3 then
+ begin
+  edtCelular.Text := edtCelular.Text+')';
+  edtCelular.SelStart := Length(edtCelular.Text);
+ end;
+if Length(edtCelular.Text) = 9 then
+ begin
+  edtCelular.Text := edtCelular.Text+'-';
+  edtCelular.SelStart := Length(edtCelular.Text);
+ end;
+end;
+
+procedure TcadastroFornecedores.edtCelularKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroFornecedores.edtCepKeyPress(Sender: TObject; var Key: Char);
+begin
+    if Key = #8 then
+      exit;
+
+   if Length(edtCep.Text) = 2 then
+      begin
+         edtCep.Text := edtCep.Text + '.';
+         edtCep.Selstart := Length(edtCep.Text);
+      end;
+
+   if Length(edtCep.Text) = 6 then
+      begin
+         edtCep.Text := edtCep.Text + '-';
+         edtCep.Selstart := Length(edtCep.Text);
+      end;
+end;
+
+procedure TcadastroFornecedores.edtCnpjKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+
+    if Key = #8 then
+      exit;
+
+   if Length(edtCnpj.Text) = 2 then
+      begin
+         edtCnpj.Text := edtCnpj.Text + '.';
+         edtCnpj.Selstart := Length(edtCnpj.Text);
+      end;
+
+   if Length(edtCnpj.Text) = 6 then
+      begin
+         edtCnpj.Text := edtCnpj.Text + '.';
+         edtCnpj.Selstart := Length(edtCnpj.Text);
+      end;
+
+   if Length(edtCnpj.Text) = 10 then
+      begin
+         edtCnpj.Text := edtCnpj.Text + '\';
+         edtCnpj.Selstart := Length(edtCnpj.Text);
+      end;
+
+      if Length(edtCnpj.Text) = 15 then
+      begin
+         edtCnpj.Text := edtCnpj.Text + '-';
+         edtCnpj.Selstart := Length(edtCnpj.Text);
+      end;
+end;
+
+procedure TcadastroFornecedores.edtTelefoneChange(Sender: TObject);
+begin
+    if (Length(edtTelefone.Text) = 1) then
+ begin
+  if edtTelefone.Text[1] = '(' then
+   edtTelefone.Text := ''
+  else
+   begin
+    edtTelefone.Text := '('+edtTelefone.Text;
+    edtTelefone.SelStart := Length(edtTelefone.Text);
+   end;
+ end;
+if Length(edtTelefone.Text) = 3 then
+ begin
+  edtTelefone.Text := edtTelefone.Text+')';
+  edtTelefone.SelStart := Length(edtTelefone.Text);
+ end;
+if Length(edtTelefone.Text) = 8 then
+ begin
+  edtTelefone.Text := edtTelefone.Text+'-';
+  edtTelefone.SelStart := Length(edtTelefone.Text);
+ end;
+end;
+
+procprocedure TcadastroFornecedores.edtTelefoneKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+
+end;
+
+edure TcadastroFornecedores.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+
+    if (Application.MessageBox('Deseja realmente sair?', 'Aviso', 36)=6)then
+    begin
+        dmConexao.tbPessoaJuridica.Close;
+        dmConexao.tbPessoaJuridica.Active := false;
+        close;
+    end
+      else
+        begin
+            Abort;
+        end;
+end;
+
+procedure TcadastroFornecedores.FormShow(Sender: TObject);
+begin
+    dmConexao.tbPessoaJuridica.Active := true;
+    dmConexao.tbPessoaJuridica.Open;
+end;
+
+function TcadastroFornecedores.Mascara(edt, str: String): string;
+  var i : integer;
+begin
+  for i := 1 to Length(edt) do
+  begin
+     if (str[i] = '9') and not (edt[i] in ['0'..'9']) and (Length(edt)=Length(str)+1) then
+        delete(edt,i,1);
+     if (str[i] <> '9') and (edt[i] in ['0'..'9']) then
+        insert(str[i],edt, i);
+  end;
+  result := edt;
+end;
+
+end.

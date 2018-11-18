@@ -1,0 +1,22 @@
+program ProjetoSistemaComercial;
+
+uses
+  Forms,
+  TelaLogin in 'TelaLogin.pas' {Login},
+  TelaPrincipal in 'TelaPrincipal.pas' {sistemaComercial},
+  TelaCadastroCliente in 'TelaCadastroCliente.pas' {cadastroCliente},
+  TelaCadastroProdutos in 'TelaCadastroProdutos.pas' {cadastroProdutos},
+  TelaConexao in 'TelaConexao.pas' {dmControle: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TLogin, Login);
+  Application.CreateForm(TsistemaComercial, sistemaComercial);
+  Application.CreateForm(TcadastroCliente, cadastroCliente);
+  Application.CreateForm(TcadastroProdutos, cadastroProdutos);
+  Application.CreateForm(TdmControle, dmControle);
+  Application.Run;
+end.

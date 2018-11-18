@@ -1,0 +1,24 @@
+unit TelaConsultarFornecedor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TconsultarFornecedor = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  consultarFornecedor: TconsultarFornecedor;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,380 @@
+unit TelaCadastroCliente;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Menus, StdCtrls, Mask, Buttons, DBCtrls, DB, Grids, DBGrids, ExtCtrls,
+  ADODB, WideStrings, DBXMsSQL, FMTBcd, DBClient, Provider, SqlExpr;
+
+type
+  TcadastroCliente = class(TForm)
+    GroupBox1: TGroupBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtNome: TDBEdit;
+    Label3: TLabel;
+    edtNascimento: TDBEdit;
+    Label4: TLabel;
+    edtCadastro: TDBEdit;
+    Label5: TLabel;
+    edtEmail: TDBEdit;
+    Label7: TLabel;
+    edtTelefone: TDBEdit;
+    Label8: TLabel;
+    edtCelular: TDBEdit;
+    Label9: TLabel;
+    edtDescricao: TDBEdit;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    edtCpf: TDBEdit;
+    Label6: TLabel;
+    edtLogradouro: TDBEdit;
+    Label10: TLabel;
+    edtNumero: TDBEdit;
+    Label11: TLabel;
+    edtComplemento: TDBEdit;
+    Label12: TLabel;
+    edtCep: TDBEdit;
+    Label13: TLabel;
+    edtCidade: TDBEdit;
+    Label14: TLabel;
+    DBEdit6: TDBEdit;
+    Label15: TLabel;
+    edtUf: TDBEdit;
+    DBNavigator1: TDBNavigator;
+    dstbPessoaFisica: TDataSource;
+    btPesquisar: TBitBtn;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure btSalvarClick(Sender: TObject);
+    procedure btEditarClick(Sender: TObject);
+    procedure btExcluirClick(Sender: TObject);
+    procedure limparCampos;
+    procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure BitBtn4Click(Sender: TObject);
+    procedure btPesquisarClick(Sender: TObject);
+    procedure edtTelefoneChange(Sender: TObject);
+    procedure edtCpfKeyPress(Sender: TObject; var Key: Char);
+    procedure edtNascimentoChange(Sender: TObject);
+    procedure edtNascimentoKeyPress(Sender: TObject; var Key: Char);
+    function Mascara(edt: String;str:String):string;
+    procedure edtCadastroChange(Sender: TObject);
+    procedure edtCadastroKeyPress(Sender: TObject; var Key: Char);
+    procedure btNovoClick(Sender: TObject);
+    procedure edtCelularChange(Sender: TObject);
+    procedure edtCepKeyPress(Sender: TObject; var Key: Char);
+    procedure edtTelefoneKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCelularKeyPress(Sender: TObject; var Key: Char);
+    procedure edtNumeroKeyPress(Sender: TObject; var Key: Char);
+    procedure edtNomeKeyPress(Sender: TObject; var Key: Char);
+    procedure edtDescricaoKeyPress(Sender: TObject; var Key: Char);
+    procedure edtLogradouroKeyPress(Sender: TObject; var Key: Char);
+    procedure edtCidadeKeyPress(Sender: TObject; var Key: Char);
+    procedure edtUfKeyPress(Sender: TObject; var Key: Char);
+
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  cadastroCliente: TcadastroCliente;
+
+implementation
+
+uses TelaPrincipal, TelaConexao, TelaConsultarCliente;
+
+{$R *.dfm}
+
+function TcadastroCliente.Mascara(edt: String;str:String):string;
+var
+  i : integer;
+begin
+  for i := 1 to Length(edt) do
+  begin
+     if (str[i] = '9') and not (edt[i] in ['0'..'9']) and (Length(edt)=Length(str)+1) then
+        delete(edt,i,1);
+     if (str[i] <> '9') and (edt[i] in ['0'..'9']) then
+        insert(str[i],edt, i);
+  end;
+  result := edt;
+end;
+
+procedure TcadastroCliente.BitBtn1Click(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.First;
+end;
+
+procedure TcadastroCliente.BitBtn2Click(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Prior;
+end;
+
+procedure TcadastroCliente.BitBtn3Click(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Next;
+end;
+
+procedure TcadastroCliente.BitBtn4Click(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Last;
+end;
+
+procedure TcadastroCliente.btEditarClick(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Edit;
+end;
+
+procedure TcadastroCliente.btExcluirClick(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Delete;
+end;
+
+procedure TcadastroCliente.btNovoClick(Sender: TObject);
+begin
+    limparCampos;
+end;
+
+procedure TcadastroCliente.btPesquisarClick(Sender: TObject);
+begin
+    cadastroCliente.Hide;
+    consultarCliente.ShowModal;
+end;
+
+procedure TcadastroCliente.btSalvarClick(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Insert;
+    dmConexao.tbPessoaFisica.Post;
+end;
+
+procedure TcadastroCliente.edtCadastroChange(Sender: TObject);
+begin
+    edtCadastro.Text := Mascara(edtCadastro.Text,'99/99/9999');
+    edtCadastro.SelStart := Length(edtCadastro.Text);
+end;
+
+procedure TcadastroCliente.edtCadastroKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroCliente.edtCelularChange(Sender: TObject);
+begin
+if (Length(edtCelular.Text) = 1) then
+ begin
+  if edtCelular.Text[1] = '(' then
+   edtCelular.Text := ''
+  else
+   begin
+    edtCelular.Text := '('+edtCelular.Text;
+    edtCelular.SelStart := Length(edtCelular.Text);
+   end;
+ end;
+if Length(edtCelular.Text) = 3 then
+ begin
+  edtCelular.Text := edtCelular.Text+')';
+  edtCelular.SelStart := Length(edtCelular.Text);
+ end;
+if Length(edtCelular.Text) = 9 then
+ begin
+  edtCelular.Text := edtCelular.Text+'-';
+  edtCelular.SelStart := Length(edtCelular.Text);
+ end;
+end;
+
+procedure TcadastroCliente.edtCelularKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroCliente.edtCepKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+
+    if Key = #8 then
+      exit;
+
+   if Length(edtCep.Text) = 2 then
+      begin
+         edtCep.Text := edtCep.Text + '.';
+         edtCep.Selstart := Length(edtCep.Text);
+      end;
+
+   if Length(edtCep.Text) = 6 then
+      begin
+         edtCep.Text := edtCep.Text + '-';
+         edtCep.Selstart := Length(edtCep.Text);
+      end;
+end;
+
+procedure TcadastroCliente.edtCidadeKeyPress(Sender: TObject; var Key: Char);
+begin
+    if(not(key in['A'..'Z','a'..'z', #8]))then
+   begin
+      key:=#0;
+        application.MessageBox('Não é permitido números ou caracteres especiais','Atenção');
+   end;
+end;
+
+procedure TcadastroCliente.edtCpfKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then
+      begin
+      application.MessageBox('Não é permitido letras e caracteres especiais!','Atenção');
+      Abort;
+      end;
+
+   if Key = #8 then exit;
+
+   if Length(edtCpf.Text) = 3 then
+      begin
+         edtCpf.Text := edtCpf.Text + '.';
+         edtCpf.Selstart := Length(edtCpf.Text);
+      end;
+
+   if Length(edtCpf.Text) = 7 then
+      begin
+         edtCpf.Text := edtCpf.Text + '.';
+         edtCpf.Selstart := Length(edtCpf.Text);
+      end;
+
+   if Length(edtCpf.Text) = 11 then
+      begin
+         edtCpf.Text := edtCpf.Text + '-';
+         edtCpf.Selstart := Length(edtCpf.Text);
+      end;
+end;
+
+procedure TcadastroCliente.edtDescricaoKeyPress(Sender: TObject; var Key: Char);
+begin
+    if(not(key in['A'..'Z','a'..'z', #8]))then
+   begin
+      key:=#0;
+        application.MessageBox('Não é permitido números ou caracteres especiais','Atenção');
+   end;
+end;
+
+procedure TcadastroCliente.edtLogradouroKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+    if(not(key in['A'..'Z','a'..'z', #8]))then
+   begin
+      key:=#0;
+        application.MessageBox('Não é permitido números ou caracteres especiais','Atenção');
+   end;
+end;
+
+procedure TcadastroCliente.edtNascimentoChange(Sender: TObject);
+begin
+    edtNascimento.Text := Mascara(edtNascimento.Text,'99/99/9999');
+    edtNascimento.SelStart := Length(edtNascimento.Text);
+end;
+
+procedure TcadastroCliente.edtNascimentoKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then
+      begin
+      application.MessageBox('Não é permitido letras e caracteres especiais!','Atenção');
+      Abort;
+      end;
+end;
+
+procedure TcadastroCliente.edtNomeKeyPress(Sender: TObject; var Key: Char);
+begin
+    if(not(key in['A'..'Z','a'..'z', #8]))then
+   begin
+      key:=#0;
+        application.MessageBox('Não é permitido números ou caracteres especiais','Atenção');
+   end;
+end;
+
+procedure TcadastroCliente.edtNumeroKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroCliente.edtTelefoneChange(Sender: TObject);
+begin
+if (Length(edtTelefone.Text) = 1) then
+ begin
+  if edtTelefone.Text[1] = '(' then
+   edtTelefone.Text := ''
+  else
+   begin
+    edtTelefone.Text := '('+edtTelefone.Text;
+    edtTelefone.SelStart := Length(edtTelefone.Text);
+   end;
+ end;
+if Length(edtTelefone.Text) = 3 then
+ begin
+  edtTelefone.Text := edtTelefone.Text+')';
+  edtTelefone.SelStart := Length(edtTelefone.Text);
+ end;
+if Length(edtTelefone.Text) = 8 then
+ begin
+  edtTelefone.Text := edtTelefone.Text+'-';
+  edtTelefone.SelStart := Length(edtTelefone.Text);
+ end;
+end;
+
+procedure TcadastroCliente.edtTelefoneKeyPress(Sender: TObject; var Key: Char);
+begin
+    if not (Key in ['0'..'9',#8]) then Abort;
+end;
+
+procedure TcadastroCliente.edtUfKeyPress(Sender: TObject; var Key: Char);
+begin
+    if(not(key in['A'..'Z','a'..'z', #8]))then
+   begin
+      key:=#0;
+        application.MessageBox('Não é permitido números ou caracteres especiais','Atenção');
+   end;
+end;
+
+procedure TcadastroCliente.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+
+    if (Application.MessageBox('Deseja realmente sair?', 'Aviso', 36)=6)then
+    begin
+       dmConexao.tbPessoaFisica.Close;
+       dmConexao.tbPessoaFisica.Active := false;
+       close;
+    end
+      else
+        begin
+            Abort;
+        end;
+
+end;
+
+procedure TcadastroCliente.FormShow(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Active := true;
+    dmConexao.tbPessoaFisica.Open;
+end;
+
+procedure TcadastroCliente.limparCampos;
+begin
+    edtCpf.Clear;
+    edtNascimento.Clear;
+    edtCadastro.Clear;
+    edtNome.Clear;
+    edtEmail.Clear;
+    edtTelefone.Clear;
+    edtCelular.Clear;
+    edtDescricao.Clear;
+    edtLogradouro.Clear;
+    edtNumero.Clear;
+    edtComplemento.Clear;
+    edtCep.Clear;
+    edtCidade.Clear;
+    edtUf.Clear;
+end;
+
+end.
+ //DBEdit4.Text := DateTimeToStr(Now);

@@ -1,0 +1,156 @@
+object dmConexao: TdmConexao
+  OldCreateOrder = False
+  Height = 482
+  Width = 578
+  object ADOConnection: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=SQLOLEDB.1;Password=18051983;Persist Security Info=True' +
+      ';User ID=sa;Data Source=ALCS-PC\SQLSERVER;Initial File Name=C:\S' +
+      'istema Comercial\BD\sistemaComercial.mdf'
+    LoginPrompt = False
+    Provider = 'SQLOLEDB.1'
+    Left = 32
+    Top = 8
+  end
+  object tbPessoaFisica: TADOQuery
+    Connection = ADOConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from tbPessoaFisica')
+    Left = 32
+    Top = 64
+    object tbPessoaFisicacpf: TStringField
+      DisplayWidth = 17
+      FieldName = 'cpf'
+      Size = 14
+    end
+    object tbPessoaFisicanome: TStringField
+      DisplayWidth = 57
+      FieldName = 'nome'
+      Size = 100
+    end
+    object tbPessoaFisicadtNascimento: TWideStringField
+      DisplayWidth = 13
+      FieldName = 'dtNascimento'
+      Size = 10
+    end
+    object tbPessoaFisicadata: TWideStringField
+      DisplayWidth = 12
+      FieldName = 'data'
+      Size = 10
+    end
+    object tbPessoaFisicaemail: TStringField
+      DisplayWidth = 36
+      FieldName = 'email'
+      Size = 30
+    end
+    object tbPessoaFisicatelefone: TStringField
+      DisplayWidth = 16
+      FieldName = 'telefone'
+      Size = 13
+    end
+    object tbPessoaFisicacelular: TStringField
+      DisplayWidth = 17
+      FieldName = 'celular'
+      Size = 14
+    end
+    object tbPessoaFisicadescricao: TStringField
+      DisplayWidth = 120
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object tbPessoaFisicalogradouro: TStringField
+      FieldName = 'logradouro'
+      Size = 60
+    end
+    object tbPessoaFisicanumero: TStringField
+      FieldName = 'numero'
+      Size = 7
+    end
+    object tbPessoaFisicacomplemento: TStringField
+      FieldName = 'complemento'
+      Size = 10
+    end
+    object tbPessoaFisicacep: TStringField
+      FieldName = 'cep'
+      Size = 10
+    end
+    object tbPessoaFisicacidade: TStringField
+      FieldName = 'cidade'
+      Size = 30
+    end
+    object tbPessoaFisicauf: TStringField
+      FieldName = 'uf'
+      Size = 2
+    end
+  end
+  object tbConsultaPessoaFisica: TADOTable
+    Connection = ADOConnection
+    CursorType = ctStatic
+    TableName = 'tbPessoaFisica'
+    Left = 128
+    Top = 64
+    object tbConsultaPessoaFisicaidPessoaFisica: TLargeintField
+      FieldName = 'idPessoaFisica'
+      ReadOnly = True
+    end
+    object tbConsultaPessoaFisicacpf: TStringField
+      FieldName = 'cpf'
+      Size = 14
+    end
+    object tbConsultaPessoaFisicanome: TStringField
+      FieldName = 'nome'
+      Size = 100
+    end
+    object tbConsultaPessoaFisicadtNascimento: TStringField
+      FieldName = 'dtNascimento'
+      Size = 10
+    end
+    object tbConsultaPessoaFisicadata: TStringField
+      FieldName = 'data'
+      Size = 10
+    end
+    object tbConsultaPessoaFisicaemail: TStringField
+      FieldName = 'email'
+      Size = 30
+    end
+    object tbConsultaPessoaFisicatelefone: TStringField
+      FieldName = 'telefone'
+      Size = 13
+    end
+    object tbConsultaPessoaFisicacelular: TStringField
+      FieldName = 'celular'
+      Size = 14
+    end
+    object tbConsultaPessoaFisicadescricao: TStringField
+      FieldName = 'descricao'
+      Size = 100
+    end
+    object tbConsultaPessoaFisicalogradouro: TStringField
+      FieldName = 'logradouro'
+      Size = 60
+    end
+    object tbConsultaPessoaFisicanumero: TStringField
+      FieldName = 'numero'
+      Size = 7
+    end
+    object tbConsultaPessoaFisicacomplemento: TStringField
+      FieldName = 'complemento'
+      Size = 10
+    end
+    object tbConsultaPessoaFisicacep: TStringField
+      FieldName = 'cep'
+      Size = 10
+    end
+    object tbConsultaPessoaFisicacidade: TStringField
+      FieldName = 'cidade'
+      Size = 30
+    end
+    object tbConsultaPessoaFisicauf: TStringField
+      FieldName = 'uf'
+      Size = 2
+    end
+  end
+end

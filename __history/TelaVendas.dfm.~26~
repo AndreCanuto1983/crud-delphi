@@ -1,0 +1,395 @@
+object cadastroVendas: TcadastroVendas
+  Left = 0
+  Top = 0
+  Caption = 'Vendas'
+  ClientHeight = 545
+  ClientWidth = 807
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  OnClose = FormClose
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label2: TLabel
+    Left = 284
+    Top = 21
+    Width = 70
+    Height = 16
+    Caption = 'CPF Cliente:'
+    FocusControl = DBEdit2
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 453
+    Top = 21
+    Width = 92
+    Height = 16
+    Caption = 'C'#243'digo Produto:'
+    FocusControl = DBEdit3
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label4: TLabel
+    Left = 71
+    Top = 96
+    Width = 70
+    Height = 16
+    Caption = 'Quantidade:'
+    FocusControl = DBEdit4
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label5: TLabel
+    Left = 252
+    Top = 96
+    Width = 80
+    Height = 16
+    Caption = 'Data Compra:'
+    FocusControl = DBEdit5
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label6: TLabel
+    Left = 453
+    Top = 96
+    Width = 32
+    Height = 16
+    Caption = 'Hora:'
+    FocusControl = DBEdit6
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label7: TLabel
+    Left = 71
+    Top = 416
+    Width = 104
+    Height = 19
+    Caption = 'Valor Unit'#225'rio:'
+    FocusControl = DBEdit7
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 507
+    Top = 416
+    Width = 84
+    Height = 19
+    Caption = 'Valor Total:'
+    FocusControl = DBEdit8
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label9: TLabel
+    Left = 291
+    Top = 416
+    Width = 71
+    Height = 19
+    Caption = 'Desconto:'
+    FocusControl = DBEdit9
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label10: TLabel
+    Left = 71
+    Top = 21
+    Width = 128
+    Height = 16
+    Caption = 'Forma de Pagamento:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object DBEdit2: TDBEdit
+    Left = 284
+    Top = 46
+    Width = 147
+    Height = 24
+    DataField = 'cpfCliente'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+  end
+  object DBEdit3: TDBEdit
+    Left = 453
+    Top = 46
+    Width = 147
+    Height = 24
+    DataField = 'idProduto'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 1
+  end
+  object DBEdit4: TDBEdit
+    Left = 71
+    Top = 121
+    Width = 70
+    Height = 24
+    DataField = 'quantidade'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 2
+  end
+  object DBEdit5: TDBEdit
+    Left = 252
+    Top = 121
+    Width = 110
+    Height = 24
+    DataField = 'dtCompra'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 3
+    Visible = False
+    OnChange = DBEdit5Change
+  end
+  object DBEdit6: TDBEdit
+    Left = 453
+    Top = 121
+    Width = 116
+    Height = 24
+    DataField = 'hrCompra'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+    OnChange = DBEdit6Change
+  end
+  object DBEdit7: TDBEdit
+    Left = 71
+    Top = 441
+    Width = 194
+    Height = 41
+    DataField = 'valorUnitario'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 5
+  end
+  object DBEdit8: TDBEdit
+    Left = 507
+    Top = 441
+    Width = 194
+    Height = 41
+    DataField = 'valorTotal'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 6
+  end
+  object DBEdit9: TDBEdit
+    Left = 291
+    Top = 441
+    Width = 194
+    Height = 41
+    DataField = 'desconto'
+    DataSource = DataSourceVendas
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+  end
+  object DBGrid1: TDBGrid
+    Left = 71
+    Top = 164
+    Width = 570
+    Height = 245
+    DataSource = DataSourceVendas
+    TabOrder = 8
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -11
+    TitleFont.Name = 'Tahoma'
+    TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'idItemCompra'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'idProduto'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'quantidade'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'dtCompra'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'hrCompra'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'valorUnitario'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'valorTotal'
+        Visible = True
+      end>
+  end
+  object DBLookupComboBox1: TDBLookupComboBox
+    Left = 71
+    Top = 46
+    Width = 194
+    Height = 24
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    KeyField = 'idPgto'
+    ListField = 'tipo'
+    ListSource = DataSourcePgto
+    ParentFont = False
+    TabOrder = 9
+  end
+  object ADOQueryVendas: TADOQuery
+    Connection = cadastroCliente.ADOConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from tbItemCompra')
+    Top = 40
+    object ADOQueryVendasidItemCompra: TLargeintField
+      FieldName = 'idItemCompra'
+    end
+    object ADOQueryVendascpfCliente: TStringField
+      FieldName = 'cpfCliente'
+      Size = 11
+    end
+    object ADOQueryVendasidProduto: TLargeintField
+      FieldName = 'idProduto'
+    end
+    object ADOQueryVendasquantidade: TIntegerField
+      FieldName = 'quantidade'
+    end
+    object ADOQueryVendasdtCompra: TStringField
+      FieldName = 'dtCompra'
+      Size = 10
+    end
+    object ADOQueryVendashrCompra: TWideStringField
+      FieldName = 'hrCompra'
+      Size = 16
+    end
+    object ADOQueryVendasvalorUnitario: TFloatField
+      FieldName = 'valorUnitario'
+    end
+    object ADOQueryVendasvalorTotal: TFloatField
+      FieldName = 'valorTotal'
+    end
+    object ADOQueryVendasdesconto: TFloatField
+      FieldName = 'desconto'
+    end
+  end
+  object DataSourceVendas: TDataSource
+    DataSet = ADOQueryVendas
+    Top = 88
+  end
+  object ADOQueryPgto: TADOQuery
+    Connection = cadastroCliente.ADOConnection
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'select * from tbPagamento')
+    Top = 408
+    object ADOQueryPgtoidPgto: TAutoIncField
+      FieldName = 'idPgto'
+      ReadOnly = True
+    end
+    object ADOQueryPgtotipo: TStringField
+      FieldName = 'tipo'
+      Size = 22
+    end
+  end
+  object DataSourcePgto: TDataSource
+    DataSet = ADOQueryPgto
+    Top = 464
+  end
+end

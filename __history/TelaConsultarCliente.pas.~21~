@@ -1,0 +1,57 @@
+unit TelaConsultarCliente;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, StdCtrls, Mask, DBCtrls, Grids, DBGrids, ExtCtrls, Buttons, ADODB,
+  Tabs, DockTabSet;
+
+type
+  TconsultarCliente = class(TForm)
+    DBGrid1: TDBGrid;
+    dsConsulta: TDataSource;
+    DBNavigator1: TDBNavigator;
+    edtPesquisaNome: TEdit;
+    btConsultarNome: TButton;
+    Label1: TLabel;
+    Label2: TLabel;
+    edtPesquisaCpf: TEdit;
+    btConsultarCpf: TButton;
+    DockTabSet1: TDockTabSet;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure edtPesquisaNomeChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  consultarCliente: TconsultarCliente;
+
+implementation
+
+uses TelaConexao, TelaCadastroCliente;
+
+{$R *.dfm}
+
+procedure TconsultarCliente.edtPesquisaNomeChange(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Locate('nome', edtConsultaNome.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TconsultarCliente.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+    dmConexao.tbPessoaFisica.Close;
+    cadastroCliente.ShowModal;
+end;
+
+procedure TconsultarCliente.FormShow(Sender: TObject);
+begin
+    dmConexao.tbPessoaFisica.Open;
+end;
+
+end.

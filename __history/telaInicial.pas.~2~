@@ -1,0 +1,24 @@
+unit telaInicial;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs;
+
+type
+  TtelaPrincipal = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  telaPrincipal: TtelaPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+end.

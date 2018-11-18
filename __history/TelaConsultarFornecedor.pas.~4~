@@ -1,0 +1,42 @@
+unit TelaConsultarFornecedor;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, DB;
+
+type
+  TconsultarFornecedor = class(TForm)
+    edtPesquisaNome: TEdit;
+    edtPesquisaCpf: TEdit;
+    Label2: TLabel;
+    Label1: TLabel;
+    DBGrid1: TDBGrid;
+    dsConsultaPJ: TDataSource;
+    procedure edtPesquisaNomeChange(Sender: TObject);
+    procedure edtPesquisaCpfChange(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  consultarFornecedor: TconsultarFornecedor;
+
+implementation
+
+{$R *.dfm}
+
+procedure TconsultarFornecedor.edtPesquisaCpfChange(Sender: TObject);
+begin
+    dmConexao.tbPessoaJuridica.Locate('cnpj', edtPesquisaCpf.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TconsultarFornecedor.edtPesquisaNomeChange(Sender: TObject);
+begin
+    dmConexao.tbPessoaJuridica.Locate('nomeFantasia', edtPesquisaNome.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+end.

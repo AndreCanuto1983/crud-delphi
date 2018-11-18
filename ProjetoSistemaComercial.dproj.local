@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2015/03/05 15:54:46.460.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\telaLogin.pas</Transaction>
+    <Transaction>2015/03/05 15:54:46.460.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\telaLogin.dfm</Transaction>
+    <Transaction>2015/03/05 15:55:03.226.dproj,C:\Users\Drex\Documents\RAD Studio\Projects\Project1.dproj=C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoLoja.dproj</Transaction>
+    <Transaction>2015/03/05 16:05:34.623.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\telaInicial.pas</Transaction>
+    <Transaction>2015/03/05 16:05:34.623.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\telaInicial.dfm</Transaction>
+    <Transaction>2015/03/05 16:11:31.178.pas,C:\Users\Drex\Documents\RAD Studio\Projects\telaLogin.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaLogin.pas</Transaction>
+    <Transaction>2015/03/05 16:11:31.178.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\telaLogin.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaLogin.dfm</Transaction>
+    <Transaction>2015/03/05 16:11:53.883.pas,C:\Users\Drex\Documents\RAD Studio\Projects\telaInicial.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaInicial.pas</Transaction>
+    <Transaction>2015/03/05 16:11:53.883.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\telaInicial.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaInicial.dfm</Transaction>
+    <Transaction>2015/03/05 16:14:07.849.pas,C:\Users\Drex\Documents\RAD Studio\Projects\TelaInicial.pas=</Transaction>
+    <Transaction>2015/03/05 16:14:07.849.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\TelaInicial.dfm=</Transaction>
+    <Transaction>2015/03/05 16:15:10.580.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaPrincipal.pas</Transaction>
+    <Transaction>2015/03/05 16:15:10.580.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaPrincipal.dfm</Transaction>
+    <Transaction>2015/03/05 17:17:26.108.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroCliente.pas</Transaction>
+    <Transaction>2015/03/05 17:17:26.108.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroCliente.dfm</Transaction>
+    <Transaction>2015/03/05 17:43:33.423.dproj,C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoLoja.dproj=C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoSistemaComercial.dproj</Transaction>
+    <Transaction>2015/03/05 17:43:41.164.dproj,C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoSistemaComercial.dproj=C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoSistemaComercial.dproj</Transaction>
+    <Transaction>2015/03/06 21:30:02.860.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroProdutos.pas</Transaction>
+    <Transaction>2015/03/06 21:30:02.860.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroProdutos.dfm</Transaction>
+    <Transaction>2015/03/14 15:47:45.346.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.pas</Transaction>
+    <Transaction>2015/03/14 15:47:45.346.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.dfm</Transaction>
+    <Transaction>2015/03/15 03:46:09.811.pas,C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.pas=</Transaction>
+    <Transaction>2015/03/15 03:46:09.811.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.dfm=</Transaction>
+    <Transaction>2015/03/15 18:37:22.064.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=</Transaction>
+    <Transaction>2015/03/15 18:37:22.064.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=</Transaction>
+    <Transaction>2015/03/15 18:39:10.208.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit2.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.pas</Transaction>
+    <Transaction>2015/03/15 18:39:10.208.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit2.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaConexao.dfm</Transaction>
+    <Transaction>2015/03/15 18:39:17.549.dproj,C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoSistemaComercial.dproj=C:\Users\Drex\Documents\RAD Studio\Projects\ProjetoSistemaComercial.dproj</Transaction>
+    <Transaction>2015/03/18 21:08:19.125.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroFornecedores.pas</Transaction>
+    <Transaction>2015/03/18 21:08:19.125.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaCadastroFornecedores.dfm</Transaction>
+    <Transaction>2015/03/19 19:20:51.122.pas,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.pas=C:\Users\Drex\Documents\RAD Studio\Projects\TelaVendas.pas</Transaction>
+    <Transaction>2015/03/19 19:20:51.122.dfm,C:\Users\Drex\Documents\RAD Studio\Projects\Unit1.dfm=C:\Users\Drex\Documents\RAD Studio\Projects\TelaVendas.dfm</Transaction>
+    <Transaction>2015/04/11 20:32:19.633.pas,C:\Users\André\Desktop\Projects\Unit1.pas=C:\Users\André\Desktop\Projects\TelaConexao.pas</Transaction>
+    <Transaction>2015/04/11 20:32:19.633.dfm,C:\Users\André\Desktop\Projects\Unit1.dfm=C:\Users\André\Desktop\Projects\TelaConexao.dfm</Transaction>
+    <Transaction>2015/04/17 21:57:40.772.pas,C:\Sistema Comercial\Unit1.pas=C:\Sistema Comercial\TelaConsultarCliente.pas</Transaction>
+    <Transaction>2015/04/17 21:57:40.772.dfm,C:\Sistema Comercial\Unit1.dfm=C:\Sistema Comercial\TelaConsultarCliente.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
